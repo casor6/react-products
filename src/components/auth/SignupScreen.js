@@ -9,7 +9,7 @@ export const SignupScreen = () => {
     
     const dispatch = useDispatch()
     const {msgError} = useSelector(state => state.ui)
-    const [formValues, handleInputChange] = useForm({
+    const [formValues, handleInputChange, reset] = useForm({
         name:'',
         email:'',
         password:''
@@ -34,6 +34,7 @@ export const SignupScreen = () => {
         }
         dispatch(removeError())
         dispatch(startRegister(name, email, password))
+        reset()
     }
     const handleShowLogin = () => {
         dispatch(removeError())
